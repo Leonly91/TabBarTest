@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,22 +26,23 @@
     tbc.tabBar.translucent = NO;
     
     
-    UIViewController *vc1 = [[UIViewController alloc] init];
+    ViewController *vc1 = [[ViewController alloc] init];
     vc1.view.backgroundColor = [UIColor redColor];
     vc1.tabBarItem.title = @"Red";
     [tbc addChildViewController:vc1];
     
-    UIViewController *vc2 = [[UIViewController alloc] init];
+    ViewController *vc2 = [[ViewController alloc] init];
     vc2.view.backgroundColor = [UIColor greenColor];
     vc2.tabBarItem.title = @"Green";
     [tbc addChildViewController:vc2];
     
-    UIViewController *vc3 = [[UIViewController alloc] init];
+    ViewController *vc3 = [[ViewController alloc] init];
     vc3.view.backgroundColor = [UIColor blueColor];
     vc3.tabBarItem.title = @"Blue";
     [tbc addChildViewController:vc3];
     
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:tbc];
+    nvc.navigationBar.translucent = NO;
     self.window.rootViewController = nvc;
     [self.window makeKeyAndVisible];
     self.window.backgroundColor = [UIColor whiteColor];
