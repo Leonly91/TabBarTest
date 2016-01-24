@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <UIKit/UIKit.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +18,33 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame: [UIScreen mainScreen].bounds];
+    
+    
+    UITabBarController *tbc = [[UITabBarController alloc] init];
+    tbc.tabBar.translucent = NO;
+    
+    
+    UIViewController *vc1 = [[UIViewController alloc] init];
+    vc1.view.backgroundColor = [UIColor redColor];
+    vc1.tabBarItem.title = @"Red";
+    [tbc addChildViewController:vc1];
+    
+    UIViewController *vc2 = [[UIViewController alloc] init];
+    vc2.view.backgroundColor = [UIColor greenColor];
+    vc2.tabBarItem.title = @"Green";
+    [tbc addChildViewController:vc2];
+    
+    UIViewController *vc3 = [[UIViewController alloc] init];
+    vc3.view.backgroundColor = [UIColor blueColor];
+    vc3.tabBarItem.title = @"Blue";
+    [tbc addChildViewController:vc3];
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:tbc];
+    self.window.rootViewController = nvc;
+    [self.window makeKeyAndVisible];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
     return YES;
 }
 
